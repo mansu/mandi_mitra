@@ -2,6 +2,9 @@
 
 Mandi Mitra is a South India-focused crop market analysis website that helps farmers decide what to plant next based on commercial value, suitability, and price signals.
 
+## Live Demo
+https://mansu.github.io/mandi_mitra/
+
 ## What It Does
 - Captures farm profile inputs: state, season, soil, water, investment, risk, and farm size.
 - Recommends top crops using a suitability + commercial scoring model.
