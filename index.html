@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandi Mitra - Crop Market Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <main class="container">
+      <header class="hero reveal">
+        <div class="hero-top">
+          <div class="logo-pill">
+            <span class="logo-dot"></span>
+            <strong data-i18n="brand">Mandi Mitra</strong>
+          </div>
+          <div class="hero-actions">
+            <label class="lang-switch" for="languageSelect">
+              <span data-i18n="language">Language</span>
+              <select id="languageSelect" aria-label="Language switcher">
+                <option value="en">English</option>
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+                <option value="ml">മലയാളം</option>
+              </select>
+            </label>
+            <span class="shine-tag">MVP</span>
+          </div>
+        </div>
+        <p class="eyebrow" data-i18n="eyebrow">Commercial Crop Intelligence for South India</p>
+        <h1>
+          <span data-i18n="hero_title_prefix">Choose the next crop with</span>
+          <span class="shine-text" data-i18n="hero_title_highlight">market-first analysis</span>
+        </h1>
+        <p data-i18n="hero_subtitle">
+          Analyze commercial value, compare prices, and find a practical crop plan for your next
+          season.
+        </p>
+      </header>
+
+      <section class="panel reveal delay-1">
+        <h2 data-i18n="farm_profile">Farm Profile</h2>
+        <form id="analysisForm" class="grid-form">
+          <label>
+            <span class="field-label" data-i18n="state">State</span>
+            <select id="state" required>
+              <option value="Karnataka" data-i18n="state_karnataka">Karnataka</option>
+              <option value="Tamil Nadu" data-i18n="state_tamil_nadu">Tamil Nadu</option>
+              <option value="Andhra Pradesh" data-i18n="state_andhra_pradesh">Andhra Pradesh</option>
+              <option value="Telangana" data-i18n="state_telangana">Telangana</option>
+              <option value="Kerala" data-i18n="state_kerala">Kerala</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="season">Season</span>
+            <select id="season" required>
+              <option value="kharif" data-i18n="season_kharif">Kharif</option>
+              <option value="rabi" data-i18n="season_rabi">Rabi</option>
+              <option value="summer" data-i18n="season_summer">Summer</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="soil_type">Soil Type</span>
+            <select id="soilType" required>
+              <option value="loam" data-i18n="soil_loam">Loam</option>
+              <option value="clay" data-i18n="soil_clay">Clay</option>
+              <option value="sandy" data-i18n="soil_sandy">Sandy</option>
+              <option value="black" data-i18n="soil_black">Black</option>
+              <option value="red" data-i18n="soil_red">Red</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="water_availability">Water Availability</span>
+            <select id="water" required>
+              <option value="low" data-i18n="level_low">Low</option>
+              <option value="medium" selected data-i18n="level_medium">Medium</option>
+              <option value="high" data-i18n="level_high">High</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="investment_capacity">Investment Capacity</span>
+            <select id="investment" required>
+              <option value="low" data-i18n="level_low">Low</option>
+              <option value="medium" selected data-i18n="level_medium">Medium</option>
+              <option value="high" data-i18n="level_high">High</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="risk_appetite">Risk Appetite</span>
+            <select id="risk" required>
+              <option value="low" data-i18n="level_low">Low</option>
+              <option value="medium" selected data-i18n="level_medium">Medium</option>
+              <option value="high" data-i18n="level_high">High</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="field-label" data-i18n="farm_size">Farm Size (acres)</span>
+            <input id="acres" type="number" min="0.5" step="0.5" value="5" required />
+          </label>
+
+          <button type="submit" class="btn" data-i18n="run_analysis">Run Market Analysis</button>
+        </form>
+      </section>
+
+      <section class="panel reveal delay-2" id="recommendationSection">
+        <h2 data-i18n="top_recommendations">Top Crop Recommendations</h2>
+        <div id="topRecommendations" class="recommendation-grid"></div>
+      </section>
+
+      <section class="panel reveal delay-3">
+        <h2 data-i18n="commercial_analysis">Commercial Value Analysis</h2>
+        <div class="table-wrap">
+          <table id="analysisTable">
+            <thead>
+              <tr>
+                <th data-i18n="th_crop">Crop</th>
+                <th data-i18n="th_score">Score</th>
+                <th data-i18n="th_yield">Yield (qtl/acre)</th>
+                <th data-i18n="th_farm_gate">Farm-Gate (INR/qtl)</th>
+                <th data-i18n="th_revenue">Revenue/acre</th>
+                <th data-i18n="th_cost">Cost/acre</th>
+                <th data-i18n="th_margin">Margin/acre</th>
+                <th data-i18n="th_roi">ROI</th>
+                <th data-i18n="th_break_even">Break-even Yield</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel reveal delay-4">
+        <div class="section-head">
+          <h2 data-i18n="price_comparison">Price Comparison</h2>
+          <label class="compact">
+            <span data-i18n="sort_by">Sort by</span>
+            <select id="priceSort">
+              <option value="mandiPrice" data-i18n="sort_mandi">Highest mandi price</option>
+              <option value="trend" data-i18n="sort_trend">Strongest 30-day trend</option>
+              <option value="spread" data-i18n="sort_spread">Best mandi-farm spread</option>
+              <option value="stable" data-i18n="sort_stable">Lowest volatility</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="priceHighlights" class="highlight-row"></div>
+
+        <div class="table-wrap">
+          <table id="priceTable">
+            <thead>
+              <tr>
+                <th data-i18n="th_crop">Crop</th>
+                <th data-i18n="th_farm_gate">Farm-Gate (INR/qtl)</th>
+                <th data-i18n="th_mandi">Mandi (INR/qtl)</th>
+                <th data-i18n="th_trend">30-day Trend</th>
+                <th data-i18n="th_spread">Mandi-Farm Spread</th>
+                <th data-i18n="th_volatility">Volatility</th>
+                <th data-i18n="th_signal">Signal</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <p class="note" data-i18n="note">
+          Note: This MVP uses sample economics and indicative prices for demonstration. Replace with
+          district-level live mandi feeds for production use.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
